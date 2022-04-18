@@ -9,7 +9,7 @@ from keras.layers import Flatten, RepeatVector, Permute, TimeDistributed
 from keras.layers import Multiply, Lambda, Softmax
 import keras.backend as K 
 from keras.models import Model
-from keras.optimizers import RMSprop
+from tensorflow.keras.optimizers import RMSprop
 
 from keras.utils import np_utils
 
@@ -68,7 +68,7 @@ def create_network(n_notes, n_durations, embed_size = 100, rnn_units = 256, use_
         att_model = None
 
 
-    opti = RMSprop(lr = 0.001)
+    opti = RMSprop(learning_rate=0.001)
     model.compile(loss=['categorical_crossentropy', 'categorical_crossentropy'], optimizer=opti)
 
     return model, att_model

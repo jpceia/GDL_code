@@ -1,7 +1,7 @@
 from __future__ import print_function, division
 import scipy
 
-from keras_contrib.layers.normalization.instancenormalization import InstanceNormalization
+from tensorflow_addons.layers import InstanceNormalization
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout, Concatenate
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D, Add
 from keras.layers.advanced_activations import LeakyReLU, ELU
@@ -10,10 +10,10 @@ from keras.layers.merge import add
 from models.layers.layers import ReflectionPadding2D
 from keras.models import Sequential, Model
 from keras.initializers import RandomNormal
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 from keras import backend as K
 
-from keras.utils import plot_model
+from tensorflow.keras.utils import plot_model
 
 import datetime
 import matplotlib.pyplot as plt

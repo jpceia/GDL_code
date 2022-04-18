@@ -4,9 +4,9 @@ from keras.layers.merge import _Merge
 
 from keras.models import Model, Sequential
 from keras import backend as K
-from keras.optimizers import Adam, RMSprop
+from tensorflow.keras.optimizers import Adam, RMSprop
 from keras.callbacks import ModelCheckpoint 
-from keras.utils import plot_model
+from tensorflow.keras.utils import plot_model
 from keras.initializers import RandomNormal
 
 from functools import partial
@@ -19,7 +19,6 @@ import matplotlib.pyplot as plt
 
 from music21 import midi
 from music21 import note, stream, duration, tempo
-
 
 
 class RandomWeightedAverage(_Merge):
@@ -250,11 +249,11 @@ class MuseGAN():
 
     def get_opti(self, lr):
         if self.optimiser == 'adam':
-            opti = Adam(lr=lr, beta_1=0.5, beta_2 = 0.9)
+            opti = Adam(learning_rate=lr, beta_1=0.5, beta_2 = 0.9)
         elif self.optimiser == 'rmsprop':
-            opti = RMSprop(lr=lr)
+            opti = RMSprop(learning_rate=lr)
         else:
-            opti = Adam(lr=lr)
+            opti = Adam(learning_rate=lr)
 
         return opti
 
